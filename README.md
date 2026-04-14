@@ -1,6 +1,6 @@
 # Frontend Mentor — Bento Grid
  
-A solution to the [Bento Grid challenge](https://www.frontendmentor.io/challenges/bento-grid-RMydElrlOj) on Frontend Mentor.
+A solution to the [Bento Grid challenge]([https://www.frontendmentor.io/challenges/bento-grid-RMydElrlOj](https://www.frontendmentor.io/challenges/bento-grid-RMydElrlOj)) on Frontend Mentor.
  
 ---
  
@@ -14,8 +14,8 @@ A solution to the [Bento Grid challenge](https://www.frontendmentor.io/challenge
  
 ## 🔗 Links
  
-- **Live Site:** [[your-live-site-url.com](#)](https://nadaafawzyy.github.io/bento-grid-main/)
-- **Frontend Mentor Profile:** [[Nada Fawzy](https://www.frontendmentor.io/profile/nadaafawzyy)](https://www.frontendmentor.io/profile/nadaafawzyy)
+- **Live Site:** (https://nadaafawzyy.github.io/bento-grid-main/)
+- **Frontend Mentor Profile:**(https://www.frontendmentor.io/profile/nadaafawzyy)
  
 ---
  
@@ -26,7 +26,6 @@ A solution to the [Bento Grid challenge](https://www.frontendmentor.io/challenge
 - CSS Grid (bento layout)
 - Flexbox
 - Mobile-first responsive design
-- [Comfortaa](https://fonts.google.com/specimen/Comfortaa) — Google Fonts
  
 ---
  

@@ -65,11 +65,18 @@ h2,h1{
     background-color: var(--Purple-500);
     color: var(--White);
     padding: 2rem;
-        margin: 2rem;
+    margin: 1rem;
+    justify-content: space-evenly;
+    text-align: center;
+    flex-wrap: wrap;
+    align-items: center;
+
 }
-.header h1 , .header span ,.header em{
+.header h1 , .header span ,.header i{
     font-size: 3rem;
     margin: 0.5rem;
+    justify-content: center;
+    align-items: center;
 }
 .header span{
     color: var(--Yellow-500);
@@ -203,7 +210,7 @@ h2,h1{
 }
 .ai{
     grid-area:ai ;
-    margin: 2rem;
+    margin: 1rem 1rem 5.5rem 1rem;
     padding: 0 2rem ;
     background-color: var(--Yellow-500);
 }
@@ -246,12 +253,6 @@ footer a{
         margin: 0;
         padding: 0;
     }
-    h1 {
-        line-height: 3rem;
-        letter-spacing: -2px;
-        text-align: center;
-        padding: 1rem;
-    }
     h2{
         font-size: 1.5rem;
         letter-spacing: -2px;
@@ -264,6 +265,7 @@ footer a{
         width: 100%;
         height: min-content;
         text-align: center;
+        gap: 0;
     }
     img{
         width: 100%;
@@ -272,6 +274,40 @@ footer a{
         padding: 1rem;
         margin: 1rem;
     }
+    .header h1 ,.header span ,.header i{
+        margin: 0;
+        line-height: 3rem;
+        letter-spacing: -2px;
+        text-align: center;
+        padding: .6rem;
+        font-size: 2rem;
+    }
+    .header p{
+    margin: 0 0 1rem 0;
+    padding: 0;
+    }
+    .header img{
+        width: 60%;
+        height: auto;
+        padding: 10px;
+        margin: 0;
+    }
+    .schedule{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin: 0;
+        padding-right: 3rem ;
+        text-align: left;
+    }
+    .schedule img{
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 0;
+        margin: 0;
+    }
     .Platforms img{
         width: 100%;
         height: auto;
@@ -279,11 +315,36 @@ footer a{
         padding: 0;
         margin: 0;
     }
-    .Platforms{
+    .Platforms h2 {
         margin: 0;
         padding: 0;
     }
-.social-media img{
+    .Platforms{
+        margin: 0px;
+        padding: 0;
+    }
+    .growth{
+        margin: 0;
+        padding:  0 1rem;
+        align-items: flex-start;
+        justify-self: start;
+        justify-content: flex-start;
+        text-align: left;
+    }
+    .growth p , .growth img , .growth h2{
+        margin:  0;
+    }
+    .followers{
+        flex-direction: column;
+        margin: 0;
+        padding: 1rem;
+    }
+    .followers img{
+        width: 90%;
+        height: auto;
+        margin: auto;
+    }
+    .social-media img{
         width: 100%;
         height: auto;
         position: relative;
@@ -292,5 +353,21 @@ footer a{
         right: 0;
         padding: 1rem;
         margin: 1rem;
+}
+    .quicker , .ai{
+        margin: 0;
+        padding: 1rem;
+}
+.quicker h2 , .ai h2{
+    margin: 0;
+    padding: 0;
+}
+.quicker img , .ai img{
+    margin: 0;
+    padding: 0;
+}
+footer{
+    margin: 1rem 0 0;
+    padding: 0;
 }
 }

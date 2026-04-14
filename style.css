@@ -3,33 +3,49 @@
 :root{
     --Purple-100: hsl(254, 88%, 90%);
     --Purple-500: hsl(256, 67%, 59%);
-
     --Yellow-100: hsl(31, 66%, 93%);
     --Yellow-500: hsl(39, 100%, 71%);
-
     --White: hsl(0, 0%, 100%);
     --Black: hsl(0, 0%, 7%);
+
+    --radius: 1rem;
+    --gap: 1rem;
 }
 *{
     box-sizing: border-box;
-    font-family:Comfortaa,'Inter', sans-serif;
     padding: 0;
+    margin: 0;
 }
 body{
-    text-align: center;
+    font-family: 'Comfortaa', sans-serif;
     background-color: #eee;
 }
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+h2,h1{
+    font-weight: 700;
+    letter-spacing: -3px;
+    text-align: left;
+}
+h1 { font-size: 3rem; }
+h2 { font-size: 2.2rem; }
+
+/* ===================
+    layout
+=================== */
 main{
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    justify-content: center;
-    margin: 1rem;
-    padding: 1rem;
+    margin: var(--gap);
+    padding: var(--gap);
 }
-section{
+.bento-grid{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns:  .8fr 1fr 1fr .8fr;
     grid-template-rows:1fr 0.5fr 0.5fr 1fr;
     grid-template-areas:
         "quicker  header     header     social"
@@ -37,127 +53,120 @@ section{
         "ai  platforms  schedule   social"
         "ai       growth     followers  followers";
 }
-img{
-    width: 50%;
-    height:30%;
-}
+/* =====================
+    Card Base
+   ===================== */
 .card{
-        -o-border-radius: 1rem;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    border-radius: 1rem;
+    border-radius: var(--radius);
     padding: 10px;
-        display: flex;
+    margin: var(--gap);
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+}
+/* =====================
+    Individual Cards
+   ===================== */
 
-}
-h2,h1{
-    letter-spacing: -3px;
-    font-size: 2.2rem;
-    font-weight:700 ;
-    text-align: left;
-}
-.header{
+/* Header */
+.card--header{
     grid-area:header ;
     background-color: var(--Purple-500);
     color: var(--White);
     padding: 2rem;
-    margin: 1rem;
     justify-content: space-evenly;
-    text-align: center;
     flex-wrap: wrap;
-    align-items: center;
-
 }
-.header h1 , .header span ,.header i{
+.card--header h1 ,
+.card--header span ,
+.card--header i{
     font-size: 3rem;
     margin: 0.5rem;
-    justify-content: center;
-    align-items: center;
 }
-.header span{
+.card--header span{
     color: var(--Yellow-500);
 }
-.header p{
-    margin-top: 0;
+.card--header p{
     font-weight: 100;
     font-size: .8rem;
 }
-.header img{
+.card--header img{
     width: 40%;
-    height: 13%;
 }
-.Platforms{
-    grid-area:platforms;
+
+/* Platforms */
+.card--Platforms{
+    grid-area: platforms;
     background-color: var(--White);
-    overflow: hidden;
     text-align: left;
-    justify-content: flex-end;
-    margin: 1rem;
-    position: relative;
-}
-.Platforms img{
-    width: 88%;
-    height: 23%;
+    justify-content: space-between;
+    align-items: flex-start;
     overflow: hidden;
-    position: absolute;
-    top: 0.5rem;
-    left: 2rem;
+    padding: 1.5rem;
 }
-.Platforms h2{
-    padding: 0 3rem ;
-    margin-top:5rem;
+.card--Platforms img{
+    width: 100%;
+    align-self: flex-start;
 }
-.schedule{
+.card--Platforms h2{
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+/* Schedule */
+.card--schedule{
     grid-area: schedule;
     background-color: var(--Yellow-500);
-    overflow-y: hidden;
-    position: relative;
-    margin: 1rem ;
-    padding: 1rem 0;
     justify-content: flex-start;
-}
-.schedule h2{
-    padding: 0 2rem;
-    margin-bottom: 0;
-}
-.schedule img{
-    translate: 0 3.6rem;
-    width: 65%;
-    height: auto;
-    position: absolute;
-    bottom: 0; 
-}
-.social-media{
-    grid-area: social;
-    background-color: var(--Purple-100);
-    margin: 1rem;
-    position: relative;
+    align-items: flex-start;
     overflow: hidden;
+    padding: 1.5rem 1.5rem 0;
+    position: relative;
 }
-.social-media h2{
+.card--schedule h2{
+    margin-bottom: 1rem;
+}
+.card--schedule img{
+    width: 90%;
+    align-self: center;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    translate: 50% 50%;
+}
+
+/* Social Media */
+.card--social-media{
+    grid-area: social;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+    padding: 1.5rem;
+    background-color: var(--Purple-100);
+    position: relative;
+}
+.card--social-media h2{
     padding-left:  1rem;
-    text-align: left;
-    margin-bottom: 0;
     letter-spacing: -2px;
 }
-.social-media p{
-    padding:  0 3rem 0 3rem;
+.card--social-media p{
+    margin-bottom: 1rem;
     text-align: left;
     font-weight: 500;
+    position: absolute;
+    bottom: 7%;
 }
-.social-media img{
+.card--social-media img{
     width: 100%;
-    height:50%;
-    translate: 5rem 11rem;
     position: absolute;
     bottom: 50%;
-    right: 0;
+    right: 80px;
+    translate: 50% 50%;
 }
-.followers{
+
+/* Followers */
+.card--followers{
     grid-area: followers;
     background-color: var(--Purple-500);
     color: var(--White);
@@ -166,77 +175,85 @@ h2,h1{
     padding: 2rem;
     height: fit-content;
 }
-.followers img{
+.card--followers img{
     width: 40%;
-    height: auto;
     margin: 0 2rem 0 1rem;
 }
-.growth{
+
+/* Growth */
+.card--growth{
     grid-area: growth;
     background-color: var(--White);
-    margin: 1rem;
     padding: 1.5rem;
     height: fit-content;
     align-items: flex-start;
 }
-.growth img{
-    width: 70%;
-    height: auto;
-}
-.growth h2{
-    margin: 1rem 0 0 0;
-    text-align: left;
+.card--growth h2{
     font-size: 3rem;
 }
-.growth p{
+.card--growth img{
+    width: 70%;
+}
+.card--growth p{
     margin: 2rem 0;
     text-align: left;
     font-weight: 500;
 }
-.quicker{
+
+/* Quicker */
+.card--quicker{
     grid-area: quicker;
     justify-content: flex-start;
-    margin: 1rem;
     padding: 3rem;
     background-color: var(--Yellow-100);
 }
-.quicker img{
+.card--quicker span{
+    color: var(--Purple-500);
+}
+.card--quicker img{
     width: 80%;
-    height: auto;
 }
-.quicker span{
-    color: var(--Purple-500);
-    font-weight: 700;
-}
-.ai{
+
+
+/* AI */
+.card--ai{
     grid-area:ai ;
-    margin: 1rem 1rem 5.5rem 1rem;
-    padding: 0 2rem ;
+    overflow: hidden;
+    padding: 1.5rem 1.5rem 0;
     background-color: var(--Yellow-500);
+    justify-content: flex-end;
 }
-.ai img{
+.card--ai h2 {
+    align-self: flex-start;
+    margin-bottom: 1rem;
+}
+.card--ai img{
     width: 100%;
-    height: auto;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
+
+/* ===========
+    Footer
+============= */
 footer{
-    text-align: center;
     color: var(--Purple-500);
-    font-size: 1rem;
-    letter-spacing: 1px;
-    margin: 1rem;
-    background-color: var(--Purple-100);
     padding: 1rem;
+    background-color: var(--White);
+    border-radius: var(--radius);
+    text-align: center;
 }
 footer a{
     text-decoration: none;
-    font-size: 1rem;
-    letter-spacing: 1px;
+    color: var(--Yellow-500);
+    font-weight: 500;
 }
+
+/* =====================
+    Mobile (max-width: 600px)
+   ===================== */
 @media (max-width: 600px) {
-    section{
-        display: grid;
-        grid-template-columns: auto;
+    .bento-grid{
+        grid-template-columns: 1fr;
         grid-template-rows: repeat(8,auto);
         grid-template-areas: 
         'header'
@@ -248,8 +265,6 @@ footer a{
         'quicker'
         'ai';
         gap: 2rem;
-        align-items: center;
-        justify-content: center;
         margin: 0;
         padding: 0;
     }
@@ -257,117 +272,121 @@ footer a{
         font-size: 1.5rem;
         letter-spacing: -2px;
     }
-    .card{
+
+     /* Reset all cards for mobile */
+    .card--card{
         margin: 0;
         padding: 0;
-        align-items: center;
-        justify-content: center;
         width: 100%;
         height: min-content;
-        text-align: center;
         gap: 0;
     }
     img{
         width: 100%;
-        height: auto;
-        position: relative;
         padding: 1rem;
         margin: 1rem;
+        position: static;
     }
-    .header h1 ,.header span ,.header i{
-        margin: 0;
+
+    /* header */
+    .card--header h1 ,
+    .card--header span ,
+    .card--header i{
+        font-size: 2rem;
         line-height: 3rem;
         letter-spacing: -2px;
-        text-align: center;
-        padding: .6rem;
-        font-size: 2rem;
+        padding: 0.6rem;
+        margin: 0;
     }
-    .header p{
-    margin: 0 0 1rem 0;
-    padding: 0;
+    .card--header p{
+    margin: 0 0 1rem ;
     }
-    .header img{
+    .card--header img{
         width: 60%;
-        height: auto;
         padding: 10px;
         margin: 0;
     }
-    .schedule{
-        display: flex;
-        flex-direction: column;
+
+    /* Platforms */
+    .card--Platforms{
+        padding: 0;
+    }
+    .card--Platforms img{
+        width: 100%;
+        position: relative;
+        top: auto;
+        left: auto;
+        padding: 0;
+        margin: 0;
+    }
+    .card--Platforms h2 {
+        margin: 0;
+        padding: 0;
+    }
+    /* Schedule */
+    .card--schedule{
         align-items: flex-start;
-        justify-content: flex-start;
-        margin: 0;
-        padding-right: 3rem ;
-        text-align: left;
+        padding-right: 3rem;
+        text-align: left; 
     }
-    .schedule img{
+    .card--schedule img{
         width: 100%;
-        height: auto;
         position: relative;
+        right: auto;
+        bottom: auto;
+        translate: none;
         padding: 0;
         margin: 0;
     }
-    .Platforms img{
+
+    /* social media */
+    .card--social-media img{
         width: 100%;
-        height: auto;
-        position: relative;
-        padding: 0;
-        margin: 0;
-    }
-    .Platforms h2 {
-        margin: 0;
-        padding: 0;
-    }
-    .Platforms{
-        margin: 0px;
-        padding: 0;
-    }
-    .growth{
-        margin: 0;
-        padding:  0 1rem;
-        align-items: flex-start;
-        justify-self: start;
-        justify-content: flex-start;
-        text-align: left;
-    }
-    .growth p , .growth img , .growth h2{
-        margin:  0;
-    }
-    .followers{
-        flex-direction: column;
-        margin: 0;
-        padding: 1rem;
-    }
-    .followers img{
-        width: 90%;
-        height: auto;
-        margin: auto;
-    }
-    .social-media img{
-        width: 100%;
-        height: auto;
-        position: relative;
-        translate: 0 0;
-        bottom: 0;
-        right: 0;
+        position: static;
+        translate: none;
         padding: 1rem;
         margin: 1rem;
 }
-    .quicker , .ai{
+    .card--social-media p{
+        position: static;
+        margin: 0;
+        padding: 0;
+}
+
+/* Followers */
+    .card--followers{
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .card--followers img{
+        width: 90%;
+        margin: auto;
+    }
+
+/* Growth */
+    .card--growth{
+        padding: 0 1rem;
+        align-items: flex-start;
+        justify-content: flex-start;
+        text-align: left;
+    }
+    .card--growth p , 
+    .card--growth img , 
+    .card--growth h2{
+        margin:  0;
+    }
+
+  /* Quicker & AI */
+    .card--quicker , 
+    .card--ai{
         margin: 0;
         padding: 1rem;
 }
-.quicker h2 , .ai h2{
-    margin: 0;
-    padding: 0;
-}
-.quicker img , .ai img{
-    margin: 0;
-    padding: 0;
-}
-footer{
-    margin: 1rem 0 0;
-    padding: 0;
+    .card--quicker h2,
+    .card--ai h2,
+    .card--quicker img,
+    .card--ai img{
+        margin: 0;
+        padding: 0;
 }
 }

@@ -17,43 +17,59 @@
 }
 body{
     text-align: center;
-    height: 100vh;
     background-color: #eee;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    margin: 1rem;
+    padding: 1rem;
 }
 section{
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows:1fr 0.5fr 0.5fr 1fr;
     grid-template-areas:
-                'Q H H time'            
-                'Q acc post time'            
-                'Ai acc post time'            
-                'Ai G follow follow';
-    gap: 1.5rem;
-    padding: 3rem;
+        "quicker  header     header     social"
+        "quicker  platforms  schedule   social"
+        "ai  platforms  schedule   social"
+        "ai       growth     followers  followers";
 }
 img{
     width: 50%;
     height:30%;
-    margin: 1rem 0;
 }
-.header{
-    grid-area: H ;
-    background-color: var(--Purple-500);
-    color: var(--White);
-    -o-border-radius: 1rem;
+.card{
+        -o-border-radius: 1rem;
     -webkit-border-radius: 1rem;
     -moz-border-radius: 1rem;
     -ms-border-radius: 1rem;
     border-radius: 1rem;
-    display: flex;
+    padding: 10px;
+        display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1rem;
-    padding: 1rem;
+    justify-content: space-between;
+
+}
+h2,h1{
+    letter-spacing: -3px;
+    font-size: 2.2rem;
+    font-weight:700 ;
+    text-align: left;
+}
+.header{
+    grid-area:header ;
+    background-color: var(--Purple-500);
+    color: var(--White);
+    padding: 2rem;
+        margin: 2rem;
 }
 .header h1 , .header span ,.header em{
     font-size: 3rem;
     margin: 0.5rem;
-    letter-spacing:-3px;
 }
 .header span{
     color: var(--Yellow-500);
@@ -64,122 +80,137 @@ img{
     font-size: .8rem;
 }
 .header img{
-    width: 30%;
+    width: 40%;
+    height: 13%;
 }
-.accounts{
-    grid-area: acc ;
+.Platforms{
+    grid-area:platforms;
     background-color: var(--White);
-    overflow-x: hidden;
-    text-align: left;
-    -o-border-radius: 1rem;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: fit-content;
-}
-.accounts img{
-    width: 100%;
     overflow: hidden;
-}
-.accounts h2{
-    font-size: 2rem;
-    font-weight: 700;
-    padding: 0 3rem ;
-    margin-top: 0;
-}
-.posting{
-    grid-area: post ;
-    background-color: var(--Yellow-500);
-    -o-border-radius: 1rem;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: hidden;
-    justify-content: center;
-    height: fit-content;
-    height:82%;
-}
-.posting h2{
-    font-size: 2rem;
-    font-weight:700 ;
-    padding: 0 2rem;
     text-align: left;
+    justify-content: flex-end;
+    margin: 1rem;
+    position: relative;
+}
+.Platforms img{
+    width: 88%;
+    height: 23%;
+    overflow: hidden;
+    position: absolute;
+    top: 0.5rem;
+    left: 2rem;
+}
+.Platforms h2{
+    padding: 0 3rem ;
+    margin-top:5rem;
+}
+.schedule{
+    grid-area: schedule;
+    background-color: var(--Yellow-500);
+    overflow-y: hidden;
+    position: relative;
+    margin: 1rem ;
+    padding: 1rem 0;
+    justify-content: flex-start;
+}
+.schedule h2{
+    padding: 0 2rem;
     margin-bottom: 0;
 }
-.posting img{
-    translate: 0 3rem;
-    margin-top: 0;
-    width: 60%;
+.schedule img{
+    translate: 0 3.6rem;
+    width: 65%;
+    height: auto;
+    position: absolute;
+    bottom: 0; 
+}
+.social-media{
+    grid-area: social;
+    background-color: var(--Purple-100);
+    margin: 1rem;
+    position: relative;
     overflow: hidden;
 }
-.timings{
-    grid-area: time ;
-    background-color: var(--Purple-100);
-        -o-border-radius: 1rem;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.social-media h2{
+    padding-left:  1rem;
+    text-align: left;
+    margin-bottom: 0;
+    letter-spacing: -2px;
+}
+.social-media p{
+    padding:  0 3rem 0 3rem;
+    text-align: left;
+    font-weight: 500;
+}
+.social-media img{
+    width: 100%;
+    height:50%;
+    translate: 5rem 11rem;
+    position: absolute;
+    bottom: 50%;
+    right: 0;
 }
 .followers{
-    grid-area: follow;
+    grid-area: followers;
     background-color: var(--Purple-500);
     color: var(--White);
-        -o-border-radius: 1rem;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    margin: 1.3rem;
+    padding: 2rem;
+    height: fit-content;
+}
+.followers img{
+    width: 40%;
+    height: auto;
+    margin: 0 2rem 0 1rem;
 }
 .growth{
-    grid-area: G ;
+    grid-area: growth;
     background-color: var(--White);
-        -o-border-radius: 1rem;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 1rem;
+    padding: 1.5rem;
+    height: fit-content;
+    align-items: flex-start;
+}
+.growth img{
+    width: 70%;
+    height: auto;
+}
+.growth h2{
+    margin: 1rem 0 0 0;
+    text-align: left;
+    font-size: 3rem;
+}
+.growth p{
+    margin: 2rem 0;
+    text-align: left;
+    font-weight: 500;
 }
 .quicker{
-    grid-area: Q;
+    grid-area: quicker;
+    justify-content: flex-start;
+    margin: 1rem;
+    padding: 3rem;
     background-color: var(--Yellow-100);
-    -o-border-radius: 1rem;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+}
+.quicker img{
+    width: 80%;
+    height: auto;
+}
+.quicker span{
+    color: var(--Purple-500);
+    font-weight: 700;
 }
 .ai{
-    grid-area: Ai;
+    grid-area:ai ;
+    margin: 2rem;
+    padding: 0 2rem ;
     background-color: var(--Yellow-500);
-    -o-border-radius: 1rem;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;    
+}
+.ai img{
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
 }
 footer{
     text-align: center;
@@ -187,10 +218,79 @@ footer{
     font-size: 1rem;
     letter-spacing: 1px;
     margin: 1rem;
+    background-color: var(--Purple-100);
+    padding: 1rem;
 }
 footer a{
     text-decoration: none;
-    color: var(--Yellow-500);
     font-size: 1rem;
     letter-spacing: 1px;
+}
+@media (max-width: 600px) {
+    section{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(8,auto);
+        grid-template-areas: 
+        'header'
+        'platforms'
+        'schedule'
+        'social'
+        'followers'
+        'growth'
+        'quicker'
+        'ai';
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        line-height: 3rem;
+        letter-spacing: -2px;
+        text-align: center;
+        padding: 1rem;
+    }
+    h2{
+        font-size: 1.5rem;
+        letter-spacing: -2px;
+    }
+    .card{
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: min-content;
+        text-align: center;
+    }
+    img{
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 1rem;
+        margin: 1rem;
+    }
+    .Platforms img{
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 0;
+        margin: 0;
+    }
+    .Platforms{
+        margin: 0;
+        padding: 0;
+    }
+.social-media img{
+        width: 100%;
+        height: auto;
+        position: relative;
+        translate: 0 0;
+        bottom: 0;
+        right: 0;
+        padding: 1rem;
+        margin: 1rem;
+}
 }
